@@ -10,7 +10,7 @@
 ///       Raw vector is faster to construct, destroy and resize.
 /// @tparam T The value type which the vector contains in
 template <typename T>
-requires std::is_trivially_copyable_v<T> && std::is_standard_layout_v<T>
+// requires std::is_trivially_copyable_v<T> && std::is_standard_layout_v<T>
 class RawVector
 {
 public:
