@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.10)
 
 # C++ Settings
 set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_COMPILER "/home/cck/bin/g++")
+set(CMAKE_CXX_COMPILER "/usr/local/bin/g++")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-stack-protector")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fpermissive --std=c++2a -w")
 # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
@@ -19,38 +19,36 @@ project(
 include(CMakePrintHelpers)
 
 # Boost
-set(Boost_NO_SYSTEM_PATHS TRUE)
-set(BOOST_ROOT /home/cck/boost/boost_1_80_0)
-find_package(Boost 1.80 EXACT REQUIRED COMPONENTS) 
-find_library(ProgramOptions boost_program_options /home/cck/boost/boost_1_80_0/lib)
+find_package(Boost 1.80 HINTS "/usr/local/include/boost") 
+find_library(ProgramOptions boost_program_options /usr/local/lib)
 message(STATUS "Boost version: ${Boost_VERSION}")
 
 # Fmt
-find_package(fmt HINTS "/home/dyt/Projects/fmt-9.1.0/build")
-find_library(FMT_LIBRARY fmt HINTS "/home/dyt/Projects/fmt-9.1.0/build")
+find_package(fmt HINTS "/usr/local/lib")
+find_library(FMT_LIBRARY fmt HINTS "/usr/local/lib")
 message(STATUS "fmt version: ${fmt_VERSION} ${FMT_LIBRARY}")
 
 # Google Benchmark
-find_package(benchmark REQUIRED HINTS "/home/zh/PPPU/src/benchmark/build")
+# find_package(benchmark REQUIRED HINTS "/home/zh/PPPU/src/benchmark/build")
 
 # Googletest
-include(FetchContent)
-FetchContent_Declare(
-  googletest
-  GIT_REPOSITORY git@github.com:google/googletest.git
-  GIT_TAG release-1.12.1
-)
-FetchContent_MakeAvailable(googletest)
-include_directories("/home/zh/PPPU/build/_deps/googletest-src/googletest/include")
-enable_testing()
+# include(FetchContent)
+# FetchContent_Declare(
+#   googletest
+#   GIT_REPOSITORY git@github.com:google/googletest.git
+#   GIT_TAG release-1.12.1
+# )
+# FetchContent_MakeAvailable(googletest)
+# include_directories("/home/zh/PPPU/build/_deps/googletest-src/googletest/include")
+# enable_testing()
 
 # Relic
-find_package(relic REQUIRED)
+# find_package(relic REQUIRED)
 
 # include Directories
 include_directories( 
     ${Boost_INCLUDE_DIRS}
-    "/home/dyt/Projects/fmt-9.1.0/include"
+    "/usr/local/include/fmt"
     "src")
 
 # Files
@@ -87,7 +85,7 @@ add_library(tools ${TOOLS})
 
 # Examples
 add_executable(tutorial src/example/tutorials/tutorial.cpp)
-target_link_libraries(tutorial config context datatypes example mpc ndarray network tools gmp gmpxx ssl crypto fmt::fmt-header-only pthread relic)
+target_link_libraries(tutorial config context datatypes example mpc ndarray network tools gmp gmpxx ssl crypto fmt::fmt-header-only pthread)
 
 # add_executable(BENCHMARK_CONTEXT "src/example/benchmark/context_benchmark.cc")
 # target_link_libraries(BENCHMARK_CONTEXT config context datatypes example mpc ndarray network tools gmp gmpxx ssl crypto fmt::fmt-header-only pthread benchmark::benchmark benchmark::benchmark_main)
