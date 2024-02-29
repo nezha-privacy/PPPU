@@ -24,6 +24,15 @@
 #include "ndarray/ndarray_ref.h"
 #include "ndarray/ndarray_ref.hpp"
 #include "serialization/serialization.hpp"
+#include "context/math/div.hpp"
+#include "context/math/exp.hpp"
+#include "context/math/log.hpp"
+#include "context/math/polynomial.hpp"
+#include "context/math/pow.hpp"
+#include "context/math/round.hpp"
+#include "context/math/sigmoid.hpp"
+#include "context/math/sqrt.hpp"
+#include "context/math/tools.h"
 
 std::unique_ptr<network::MultiPartyPlayer> make_netio(
     playerid_t pid,
