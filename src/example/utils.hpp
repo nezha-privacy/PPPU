@@ -103,3 +103,17 @@ ValueType make_value_data(pppu::Context* ctx, std::size_t pid, DataType data, pp
         return make_visibility<ValueType>(ctx, res, vis);
     }
 }
+
+template <typename DataType, typename ValueType>
+ValueType make_value_vec(pppu::Context* ctx, std::size_t pid, DataType data, pppu::Visibility vis, int64_t fracbits = -1) {
+    playerid_t ALICE;
+    if(vis.owner() != -1) ALICE = vis.owner(); else ALICE = 0;
+    if(pid == ALICE) {
+        core::NDArrayRef<double> z = core::make_ndarray(data);
+        auto res = pppu::make_private<ValueType>(ctx, z, fracbits);
+        return make_visibility<ValueType>(ctx, res, vis);
+    } else {
+        auto res = pppu::make_private<ValueType>(ctx, ALICE);
+        return make_visibility<ValueType>(ctx, res, vis);
+    }
+}
