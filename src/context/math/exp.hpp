@@ -9,6 +9,7 @@
 
 #include "pow.hpp"
 #include "polynomial.hpp"
+#include "context/compare/compare.hpp"
 
 namespace pppu
 {
