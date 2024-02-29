@@ -90,17 +90,27 @@ target_link_libraries(tutorial config context datatypes example mpc ndarray netw
 # add_executable(BENCHMARK_CONTEXT "src/example/benchmark/context_benchmark.cc")
 # target_link_libraries(BENCHMARK_CONTEXT config context datatypes example mpc ndarray network tools gmp gmpxx ssl crypto fmt::fmt-header-only pthread benchmark::benchmark benchmark::benchmark_main)
 
-# add_executable(TEST_CONTEXT_BASIC "src/example/unittests/context_basic_test.cc")
+# add_executable(TEST_CONTEXT_BASIC "src/example/unittest/context_basic_test.cc")
 # target_link_libraries(TEST_CONTEXT_BASIC config context datatypes example mpc ndarray network tools gmp gmpxx ssl crypto fmt::fmt-header-only pthread GTest::gtest_main)
 # include(GoogleTest)
 # gtest_add_tests(TARGET TEST_CONTEXT_BASIC)
 
-# add_executable(TEST_MPC_SEMI2K "src/example/unittests/mpc_semi2k_test.cc")
+# add_executable(TEST_MPC_SEMI2K "src/example/unittest/mpc_semi2k_test.cc")
 # target_link_libraries(TEST_MPC_SEMI2K config context datatypes example mpc ndarray network tools gmp gmpxx ssl crypto fmt::fmt-header-only pthread GTest::gtest_main)
 # include(GoogleTest)
 # gtest_add_tests(TARGET TEST_MPC_SEMI2K)
 
-# add_executable(TEST_NETWORK "src/example/unittests/network_test.cc")
+# add_executable(TEST_NETWORK "src/example/unittest/network_test.cc")
 # target_link_libraries(TEST_NETWORK config context datatypes example mpc ndarray network tools gmp gmpxx ssl crypto fmt::fmt-header-only pthread GTest::gtest_main)
 # include(GoogleTest)
 # gtest_add_tests(TARGET TEST_NETWORK)
+
+# add_executable(TEST_CONTEXT_MATH "src/example/unittest/context_math_test.cc")
+# target_link_libraries(TEST_CONTEXT_MATH config context datatypes example mpc ndarray network tools gmp gmpxx ssl crypto fmt::fmt-header-only pthread gtest)
+# include(GoogleTest)
+# gtest_add_tests(TARGET TEST_CONTEXT_MATH)
+
+# add_executable(TEST_CONTEXT_COMPARE "src/example/unittest/context_compare_test.cc")
+# target_link_libraries(TEST_CONTEXT_COMPARE config context datatypes example mpc ndarray network tools gmp gmpxx ssl crypto fmt::fmt-header-only pthread gtest)
+# include(GoogleTest)
+# gtest_add_tests(TARGET TEST_CONTEXT_COMPARE)
