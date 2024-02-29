@@ -49,6 +49,7 @@ std::shared_ptr<pppu::Context> make_context(
 );
 
 int rand_32();
+float rand_f();
 
 template <typename DataType>
 core::NDArrayRef<DataType> make_ndarray(int length);
