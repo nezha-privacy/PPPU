@@ -15,7 +15,6 @@
 
 #include "example/utils.hpp"
 #include "example/utils.cpp"
-#include "example/context_math.h"
 
 #include <gtest/gtest.h>
 
