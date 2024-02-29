@@ -34,6 +34,19 @@ Value sigmoid_euler(Context* ctx, Value const& x)
     return y;
 }
 
+/// @brief Implementation of getting the sigmoid function of the input Value in mode div.
+/// @param ctx The calculation settings
+/// @param x The input Value object to be calculated
+/// @return The result, sig(x)
+template <typename Value>
+Value sigmoid_div(Context* ctx, Value const& x)
+{
+    Value kf_1_0 = make_constant<Value>(ctx, 1.0, x.shape());
+    Value y = pppu::div(ctx, kf_1_0, add(ctx, kf_1_0, pppu::exp(ctx, neg(ctx, x))));
+
+    return y;
+}
+
 } // namespace detail
 
 /******************************** api ********************************/
@@ -48,6 +61,7 @@ Value sigmoid(Context* ctx, Value const& x)
     switch (ctx->config()->fxp_sigmoid_mode)
     {
     case Config::FXP_SIGMOID_EULER:  return detail::sigmoid_euler(ctx, x);    
+    case Config::FXP_SIGMOID_DIV: return detail::sigmoid_div(ctx, x);  
     default: throw std::runtime_error("unkonwn sigmoid mode");
     }
 }
