@@ -113,9 +113,9 @@ Value exp2_int(Context* ctx, std::span<const Value> x_bitdec)
     int64_t fracbits = ctx->config()->fxp_fracbits;
     if(fracbits >= std::pow(2, intbits)) {
         // avoid unnecessary truncation while casting to fxp
-        raw_trunc = r_lshift(ctx, raw, fracbits - std::pow(2, intbits) ).set_fracbits(fracbits);
+        raw_trunc = r_lshift(ctx, raw, fracbits - std::pow(2, intbits) ).set_fracbits(fracbits, true);
     } else {
-        raw_trunc = r_trunc(ctx, raw, std::pow(2, intbits) - fracbits ).set_fracbits(fracbits);
+        raw_trunc = r_trunc(ctx, raw, std::pow(2, intbits) - fracbits ).set_fracbits(fracbits, true);
     }
 
     Value x_msb = x_bitdec.back();
