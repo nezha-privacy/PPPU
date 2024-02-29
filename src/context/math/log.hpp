@@ -24,7 +24,7 @@ std::tuple<Value, Value> log2_dec(Context* ctx, Value const& in)
     // adjust input's fracbits to ctx->fxp_fracbits()
     // to properly deal with integers when computing x_factor
     assert( in.fracbits() <= ctx->fxp_fracbits() );
-    Value x = r_lshift(ctx, in, ctx->fxp_fracbits() - in.fracbits()).set_fracbits( ctx->fxp_fracbits() );
+    Value x = r_lshift(ctx, in, ctx->fxp_fracbits() - in.fracbits()).set_fracbits( ctx->fxp_fracbits(), true);
 
     // bitfloor(x) is the 2's power in [x/2, x)
     // x_h1bitdec is the decomposition of bitfloor(x)
