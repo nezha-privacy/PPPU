@@ -60,7 +60,7 @@ pppu::Config make_config(
     conf.fxp_sigmoid_mode = pppu::Config::FXP_SIGMOID_DIV;
 
     conf.fxp_exp_iters = 20;
-    conf.fxp_exp_intbits = 5;
+    conf.fxp_exp_intbits = 6;
     conf.fxp_exp_mode = pppu::Config::FXP_EXP_TAYLOR;
 
     conf.fxp_log_iters = 20;
@@ -117,4 +117,11 @@ int rand_32() {
     if(signal == 0) signal = 1;
     else signal = -1;
     return randoxNumber * signal;
+}
+float rand_f(){
+    std::random_device rd; 
+    std::mt19937 gen(rd()); 
+    std::uniform_real_distribution<float> dis(-32.0f, 32.0f);
+    float randomFloat = dis(gen);
+    return randomFloat;
 }
