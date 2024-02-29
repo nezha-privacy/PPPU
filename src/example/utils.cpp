@@ -59,7 +59,7 @@ pppu::Config make_config(
     conf.fxp_sigmoid_mode = pppu::Config::FXP_SIGMOID_EULER;
 
     conf.fxp_exp_iters = 20;
-    conf.fxp_exp_intbits = 128;
+    conf.fxp_exp_intbits = 5;
     conf.fxp_exp_mode = pppu::Config::FXP_EXP_TAYLOR;
 
     conf.fxp_log_iters = 20;
