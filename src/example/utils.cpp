@@ -56,7 +56,7 @@ pppu::Config make_config(
     conf.fxp_div_iters = 20;
     conf.fxp_div_mode = pppu::Config::FXP_DIV_NEWTON;
 
-    conf.fxp_sigmoid_mode = pppu::Config::FXP_SIGMOID_EULER;
+    conf.fxp_sigmoid_mode = pppu::Config::FXP_SIGMOID_DIV;
 
     conf.fxp_exp_iters = 20;
     conf.fxp_exp_intbits = 5;
