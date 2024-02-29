@@ -25,7 +25,7 @@ struct Config
 
     // fixed: euler
     int64_t fxp_sigmoid_iters;
-    enum { FXP_SIGMOID_EULER } fxp_sigmoid_mode;
+    enum { FXP_SIGMOID_EULER, FXP_SIGMOID_DIV } fxp_sigmoid_mode;
 
     // fast: euler
     // high precision: taylor
