@@ -1,6 +1,7 @@
 #pragma once
 
 #include "sigmoid.h"
+#include "exp.h"
 
 namespace pppu
 {
