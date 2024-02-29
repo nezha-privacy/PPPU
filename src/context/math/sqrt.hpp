@@ -91,7 +91,7 @@ Value sqrt_goldschmidt(Context* ctx, Value const& _in)
     // to properly deal with integers
     int fracbits = ctx->fxp_fracbits();
     assert( _in.fracbits() <= fracbits );
-    Value x = r_lshift(ctx, _in, fracbits - _in.fracbits()).set_fracbits( fracbits );
+    Value x = r_lshift(ctx, _in, fracbits - _in.fracbits()).set_fracbits( fracbits, true );
 
     std::vector<Value> x_h1bitdec = h1bitdec(ctx, x, 2*x.fracbits());
     std::vector<Value> x_factor_dec ( x_h1bitdec.rbegin(), x_h1bitdec.rend() );
