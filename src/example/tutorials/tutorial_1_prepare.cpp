@@ -43,7 +43,10 @@ pppu::Config make_config(int64_t fxp_security_parameter, int64_t fxp_fracbits) {
     conf.fxp_div_mode = pppu::Config::FXP_DIV_NEWTON;
     conf.fxp_sigmoid_mode = pppu::Config::FXP_SIGMOID_EULER;
     conf.fxp_exp_iters = 20;
-    conf.fxp_exp_intbits = 128; // Default 128
+    // exp intbits refers to the integer number of exp. 
+    // When intbits is set to 6, the operation of integer bits from -32 to 31 is supported. 
+    // exp can be a floating point number.
+    conf.fxp_exp_intbits = 6; 
     conf.fxp_exp_mode = pppu::Config::FXP_EXP_TAYLOR;
     conf.fxp_log_iters = 20;
     conf.fxp_log_mode = pppu::Config::FXP_LOG_TAYLOR;
