@@ -1,8 +1,6 @@
 # PPPU
+An open-source privacy processing unit that currently provides basic computing and fixed-point number computing under the semi-honest SPDZ2k protocol. The project is currently in the testing phase.  
 **Read this in other languages: [English](README.md), [中文](README.zh-CN.md).**
-
-## Brief
-An open-source privacy processing unit that currently provides basic computing and fixed-point number computing under the Semi2K protocol.
 
 ## Installation
 ### Preinstallation
@@ -112,7 +110,4 @@ Other Layer         : Config -----------> Network     Tools --------> All the ot
 #### Config
 * Used to read network config based on boost program options.
 
-## Protocol
-### Semi2k-SPDZ
-  A semi-honest MPC-protocol similar to SPDZ but requires a trusted third party to generate offline randoms. By default this protocol now uses trusted first party. Hence, it should be used for debugging purposes only.
 
