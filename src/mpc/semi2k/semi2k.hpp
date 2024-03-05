@@ -699,7 +699,7 @@ private:
         {
             ArrayRef<Z2<1, Signed>> c = core::make_array(std::vector<Z2<1, Signed>>(lhs.numel(), 1));
 
-            return core::apply(fn, prex_carry_pss(aa, bb, c));
+            return core::apply(fn, carry_pss(aa, bb, c));
         }
         else 
         {
