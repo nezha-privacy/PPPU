@@ -31,7 +31,7 @@ std::string Bitrate<V, M>::to_string() const {
     } else if constexpr ( std::same_as<M, std::giga> ) {
         str += "Gbps";
     } else if constexpr ( std::same_as<M, std::ratio<1>>){
-        str += "bps"
+        str += "bps";
     } else {
         throw std::runtime_error("unknown bitrate M");
     }
