@@ -1,8 +1,6 @@
 # PPPU
+一个开源隐私处理单元，目前提供半诚实的SPDZ2k协议下的基本计算和定点数字计算，该项目目前处于测试阶段。
 **其他语言版本: [English](README.md), [中文](README.zh-CN.md).**
-
-## 简介
-一个开源隐私计算单元，目前提供semi2k协议下基础计算，定点数计算等。
 
 ## 安装
 ### 预安装
@@ -112,7 +110,4 @@ Other Layer         : Config -----------> Network     Tools --------> All the ot
 #### Config（设置）
 * 用于读取基于 boost programs options 的网络配置。
 
-## 协议
-### Semi2k-SPDZ
-  类似于SPDZ的半诚实 MPC 协议，但需要可信的第三方来生成离线随机数。默认情况下，此协议现在使用受信任的第一方。因此，它应该仅用于调试目的。
 
