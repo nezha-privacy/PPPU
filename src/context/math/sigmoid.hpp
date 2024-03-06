@@ -2,6 +2,7 @@
 
 #include "sigmoid.h"
 #include "exp.h"
+#include "div.h"
 
 namespace pppu
 {
