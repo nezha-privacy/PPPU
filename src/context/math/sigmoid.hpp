@@ -1,8 +1,8 @@
 #pragma once
 
 #include "sigmoid.h"
-#include "exp.h"
-#include "div.h"
+#include "exp.hpp"
+#include "div.hpp"
 
 namespace pppu
 {
