@@ -17,7 +17,7 @@ $ git clone https://github.com/qazw52/PPPU.git
 $ unzip PPPU.zip
 $ cd PPPU
 
-Edit CMakeLists.txt and modify the paths for CMAKE_CXX_COMPILER(should be newest), boost, fmt, Google benchmark, and Google test in CMakeLists.txt to your own installation path.
+Try install.sh to install preinstallation requirments. If you already install some of them, modify the path of it in CMakeLists.txt.
 
 $ mkdir build
 $ cd build
