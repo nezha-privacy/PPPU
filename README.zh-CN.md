@@ -13,7 +13,7 @@
 
 ### 安装步骤
 ```
-$ git clone https://github.com/qazw52/PPPU.git
+$ git clone https://github.com/nezha-privacy/PPPU.git
 $ unzip PPPU.zip
 $ cd PPPU
 
