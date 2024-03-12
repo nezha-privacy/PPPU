@@ -17,7 +17,7 @@ $ git clone https://github.com/qazw52/PPPU.git
 $ unzip PPPU.zip
 $ cd PPPU
 
-编辑 CMakeLists.txt 并修改你自己的安装路径 CMAKE_CXX_COMPILER(应为最新), boost, fmt, Google benchmark, 和 Google test 在 CMakeLists.txt 中。
+尝试使用 install.sh 安装预安装内容。如果已经安装一些预安装内容，请修改CMakeLists.txt里的路径。
 
 $ mkdir build
 $ cd build
