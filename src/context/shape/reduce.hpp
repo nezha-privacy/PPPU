@@ -160,10 +160,15 @@ std::tuple<Value, Value> argmax(Context* ctx, Value const& in)
             if(has_mono == true)
             {
                 lhs = max_val.slice(std::vector<Slice>{{ .start=0, .stop=n/2+1 } });
-                rhs = concatenate(ctx, std::vector<Value>{
-                    max_val.slice(std::vector<Slice>{{ .start=n/2+1, .stop=n } }),
-                    mono
-                });
+                if(n <= 1) {
+                    rhs = mono;
+                }
+                else {
+                    rhs = concatenate(ctx, std::vector<Value>{
+                        max_val.slice(std::vector<Slice>{{ .start=n/2+1, .stop=n } }),
+                        mono
+                    });
+                }
                 has_mono = false;
             }
             else
