@@ -3,11 +3,10 @@ cmake_minimum_required(VERSION 3.10)
 
 # C++ Settings
 set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_COMPILER "/usr/local/bin/g++")
+set(CMAKE_CXX_COMPILER "/usr/bin/g++-13")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-stack-protector")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fpermissive --std=c++2a -w")
-# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
-# set(CMAKE_BUILD_TYPE "Debug")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
 
 # Project
 project(
