@@ -14,8 +14,8 @@ int main(int argc, char* argv[]) {
     /// @note Each time can only run one single tutorial
     /// @example The first terminal  : ./tutorial 0 2
     ///          The Second terminal : ./tutorial 1 2
-    tutorial::tutorial_1_prepare(pid, num_parties);
-    //tutorial::tutorial_2_context(pid, num_parties);
+    //tutorial::tutorial_1_prepare(pid, num_parties);
+    tutorial::tutorial_2_context(pid, num_parties);
     //tutorial::tutorial_3_mpc(pid, num_parties);
     //tutorial::tutorial_4_network(pid, num_parties);
     //tutorial::tutorial_5_ndarray();
