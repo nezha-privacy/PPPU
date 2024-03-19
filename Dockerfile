@@ -3,12 +3,12 @@ FROM ubuntu:20.04
 ENV TZ=Asia/Shanghai \
     DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update
-    && apt-get install -y apt-file software-properties-common
+RUN apt-get update \
+    && apt-get install -y apt-file software-properties-common \
     && add-apt-repository ppa:ubuntu-toolchain-r/test
 
-RUN apt-get update
-    && apt-get upgrade
+RUN apt-get update \
+    && apt-get upgrade \
     && apt-get install -y build-essential gcc-13 g++-13 python-dev autotools-dev cmake wget git m4 libicu-dev libbz2-dev libboost-all-dev libssl-dev openssl libeigen3-dev
 
 RUN cd tmp \
