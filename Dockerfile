@@ -3,13 +3,28 @@ FROM ubuntu:20.04
 ENV TZ=Asia/Shanghai \
     DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update \
-    && apt-get install -y apt-file software-properties-common \
-    && add-apt-repository ppa:ubuntu-toolchain-r/test
+RUN apt-get update
+RUN apt-get install -y apt-file
+RUN apt-get install -y software-properties-common
+RUN add-apt-repository ppa:ubuntu-toolchain-r/test
 
-RUN apt-get update \
-    && apt-get upgrade \
-    && apt-get install -y build-essential gcc-13 g++-13 python-dev autotools-dev cmake wget git m4 libicu-dev libbz2-dev libboost-all-dev libssl-dev openssl libeigen3-dev
+RUN apt-get update
+RUN apt-get upgrade
+RUN apt-get install -y build-essential
+RUN apt-get install -y gcc-13
+RUN apt-get install -y g++-13
+RUN apt-get install -y python-dev
+RUN apt-get install -y autotools-dev
+RUN apt-get install -y cmake
+RUN apt-get install -y wget
+RUN apt-get install -y git
+RUN apt-get install -y libicu-dev
+RUN apt-get install -y libbz2-dev
+RUN apt-get install -y libboost-all-dev
+RUN apt-get install -y libssl-dev
+RUN apt-get install -y openssl
+RUN apt-get install -y libeigen3-dev
+RUN apt-get install -y m4
 
 RUN cd tmp \
     && wget https://boostorg.jfrog.io/artifactory/main/release/1.80.0/source/boost_1_80_0.tar.gz \
