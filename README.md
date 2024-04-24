@@ -1,6 +1,6 @@
 # PPPU
 An open-source privacy processing unit that currently provides basic computing and fixed-point number computing under the semi-honest SPDZ2k protocol. The project is currently in the testing phase.  
-**Read this in other languages: [English](README.md), [中文](README-CN.md).**
+**Read this in other languages: [English](README-EN.md), [中文](README.md).**
 
 ## What's new?
 Add install in cmake.
