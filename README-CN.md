@@ -2,6 +2,9 @@
 一个开源隐私处理单元，目前提供半诚实的SPDZ2k协议下的基本计算和定点数字计算，该项目目前处于测试阶段。  
 **其他语言版本: [English](README.md), [中文](README-CN.md).**
 
+## 更新日志
+新增动态链接库和头文件安装。之后准备把fmt依赖删除掉，报错太多了。
+
 ## 安装
 ### 预安装
 * GNU Multi Precision 6.2.1 (built with C++ support)
