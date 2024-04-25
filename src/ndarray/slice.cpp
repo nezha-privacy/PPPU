@@ -1,6 +1,5 @@
 #include "slice.hpp"
 
-#include <fmt/format.h>
 #include <stdexcept>
 
 namespace core
@@ -9,10 +8,11 @@ namespace core
 /// @brief Convert the Slice object to a string representation "{start}:{stop}:{step}".
 std::string Slice::to_string() const
 {
-    return fmt::format("{}:{}:{}",
-                       start ? std::to_string(start.value()) : "",
-                       stop ? std::to_string(stop.value()) : "",
-                       step ? std::to_string(step.value()) : "");
+    std::string str = "";
+    if(start) str += std::to_string(start.value()); str += ":";
+    if(stop) str += std::to_string(stop.value()); str += ":";
+    if(step) str += std::to_string(step.value()); str += ":";
+    return str;
 }
 
 /// @brief Whether two slices are equal.
