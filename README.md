@@ -10,7 +10,6 @@
 * GNU Multi Precision 6.2.1 (built with C++ support)
 * Boost 1.80
 * OPENSSL (1.1.1 经过验证)
-* github.com/fmtlib/fmt (9.1.0 经过验证)
 * relic (for OT RCurve)
 * google benchmark & googletest (for network test and context benchmark)
 
