@@ -4,10 +4,6 @@
 
 #include <ranges>
 
-#include <fmt/core.h>
-#include <fmt/format.h>
-#include <fmt/ranges.h>
-
 namespace core
 {
 /************************ element access ************************/
@@ -524,7 +520,9 @@ std::string NDArrayRef<dtype>::to_string() const
             return std::to_string(x);
         }
         else {
-            throw std::runtime_error(fmt::format("unable to convert {} to string", typeid(x).name()));
+            std::string name = typeid(x).name();
+            std::string err = "unable to convert " + name + " to string";
+            throw std::runtime_error(err);
         }
     };
 
@@ -532,20 +530,13 @@ std::string NDArrayRef<dtype>::to_string() const
         return to_str( *this->begin() );
     }
     else if (ndim() == 1) {
-        return fmt::format("{}",
-                fmt::join(
-                    iota(0, numel()) |
-                    transform([this](int64_t i) { return this->elem({i}); }) |
-                    transform([&to_str](auto const &x) { return to_str(x); }),
-                    " "));
+        std::string str = "" + iota(0, numel()) + transform([this](int64_t i) { return this->elem({i}); }) + transform([&to_str](auto const &x) { return to_str(x); }) + " ";
+        return str;
     }
     else {
         // Converts array elements to strings and concatenates them into a string separated by Spaces.
-        return fmt::format("{}\n", 
-                fmt::join(
-                    iota(0, shape(0)) |
-                    transform([this](int64_t i){ return this->slice({i}).to_string(); }),
-                    "\n"));
+        std::string str = "" + iota(0, shape(0)) + transform([this](int64_t i){ return this->slice({i}).to_string(); }) + "\n";
+        return str;
     }
 }
 
