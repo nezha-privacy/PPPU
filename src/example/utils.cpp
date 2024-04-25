@@ -93,7 +93,6 @@ std::shared_ptr<pppu::Context> make_context(
 }
 
 std::shared_ptr<pppu::Context> run_player(std::size_t pid, std::size_t num_parties) {
-    fmt::print("");
     std::string ssl_dir = "";
     int64_t fxp_fracbits = 40;
     int64_t fxp_security_parameter = 3;
