@@ -3,7 +3,7 @@
 #include "round.h"
 
 #include <bit>
-#include <fmt/format.h>
+#include <string>
 
 namespace pppu
 {
@@ -111,7 +111,8 @@ Value mod(Context* ctx, Value const& x, T modulus)
 {
     if(modulus <= 0)
     {
-        throw std::invalid_argument(fmt::format("invalid modulus {}", modulus));
+        std::string err = "invalid modulus" + std::to_string(modulus);
+        throw std::invalid_argument(err);
     }
 
     using unsigned_int_type = unsigned long long;
