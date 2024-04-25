@@ -22,11 +22,6 @@ find_package(Boost 1.80 HINTS "/usr/local/include/boost")
 find_library(ProgramOptions boost_program_options /usr/local/lib)
 message(STATUS "Boost version: ${Boost_VERSION}")
 
-# Fmt
-find_package(fmt HINTS "/usr/local/lib")
-find_library(FMT_LIBRARY fmt HINTS "/usr/local/lib")
-message(STATUS "fmt version: ${fmt_VERSION} ${FMT_LIBRARY}")
-
 # Google Benchmark
 # find_package(benchmark REQUIRED HINTS "/home/zh/PPPU/src/benchmark/build")
 
@@ -47,7 +42,6 @@ message(STATUS "fmt version: ${fmt_VERSION} ${FMT_LIBRARY}")
 # include Directories
 include_directories( 
     ${Boost_INCLUDE_DIRS}
-    "/usr/local/include/fmt"
     "src")
 
 # Files
@@ -78,33 +72,33 @@ add_library(PPPUExample SHARED ${EXAMPLE})
 
 # Examples
 add_executable(tutorial src/example/tutorials/tutorial.cpp)
-target_link_libraries(tutorial PPPU PPPUExample gmp gmpxx ssl crypto fmt pthread relic)
+target_link_libraries(tutorial PPPU PPPUExample gmp gmpxx ssl crypto pthread relic)
 
 # add_executable(BENCHMARK_CONTEXT "src/example/benchmark/context_benchmark.cc")
-# target_link_libraries(BENCHMARK_CONTEXT PPPU PPPUExample gmp gmpxx ssl crypto fmt::fmt-header-only pthread benchmark::benchmark benchmark::benchmark_main)
+# target_link_libraries(BENCHMARK_CONTEXT PPPU PPPUExample gmp gmpxx ssl crypto pthread benchmark::benchmark benchmark::benchmark_main)
 
 # add_executable(TEST_CONTEXT_BASIC "src/example/unittest/context_basic_test.cc")
-# target_link_libraries(TEST_CONTEXT_BASIC PPPU PPPUExample gmp gmpxx ssl crypto fmt::fmt-header-only pthread GTest::gtest_main)
+# target_link_libraries(TEST_CONTEXT_BASIC PPPU PPPUExample gmp gmpxx ssl crypto pthread GTest::gtest_main)
 # include(GoogleTest)
 # gtest_add_tests(TARGET TEST_CONTEXT_BASIC)
 
 # add_executable(TEST_MPC_SEMI2K "src/example/unittest/mpc_semi2k_test.cc")
-# target_link_libraries(TEST_MPC_SEMI2K PPPU PPPUExample gmp gmpxx ssl crypto fmt::fmt-header-only pthread GTest::gtest_main)
+# target_link_libraries(TEST_MPC_SEMI2K PPPU PPPUExample gmp gmpxx ssl crypto pthread GTest::gtest_main)
 # include(GoogleTest)
 # gtest_add_tests(TARGET TEST_MPC_SEMI2K)
 
 # add_executable(TEST_NETWORK "src/example/unittest/network_test.cc")
-# target_link_libraries(TEST_NETWORK PPPU PPPUExample gmp gmpxx ssl crypto fmt::fmt-header-only pthread GTest::gtest_main)
+# target_link_libraries(TEST_NETWORK PPPU PPPUExample gmp gmpxx ssl crypto pthread GTest::gtest_main)
 # include(GoogleTest)
 # gtest_add_tests(TARGET TEST_NETWORK)
 
 # add_executable(TEST_CONTEXT_MATH "src/example/unittest/context_math_test.cc")
-# target_link_libraries(TEST_CONTEXT_MATH PPPU PPPUExample gmp gmpxx ssl crypto fmt::fmt-header-only pthread gtest)
+# target_link_libraries(TEST_CONTEXT_MATH PPPU PPPUExample gmp gmpxx ssl crypto pthread gtest)
 # include(GoogleTest)
 # gtest_add_tests(TARGET TEST_CONTEXT_MATH)
 
 # add_executable(TEST_CONTEXT_COMPARE "src/example/unittest/context_compare_test.cc")
-# target_link_libraries(TEST_CONTEXT_COMPARE pppu example gmp gmpxx ssl crypto fmt::fmt-header-only pthread gtest)
+# target_link_libraries(TEST_CONTEXT_COMPARE pppu example gmp gmpxx ssl crypto pthread gtest)
 # include(GoogleTest)
 # gtest_add_tests(TARGET TEST_CONTEXT_COMPARE)
 
