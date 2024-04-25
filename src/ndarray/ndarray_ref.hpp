@@ -530,12 +530,16 @@ std::string NDArrayRef<dtype>::to_string() const
         return to_str( *this->begin() );
     }
     else if (ndim() == 1) {
-        std::string str = "" + iota(0, numel()) + transform([this](int64_t i) { return this->elem({i}); }) + transform([&to_str](auto const &x) { return to_str(x); }) + " ";
+        auto res = iota(0, numel()) | transform([this](int64_t i) { return this->elem({i}); }) | transform([&to_str](auto const &x) { return to_str(x); });
+        std::string str = "";
+        for(auto x : res) { str += x; str += " "; }
         return str;
     }
     else {
         // Converts array elements to strings and concatenates them into a string separated by Spaces.
-        std::string str = "" + iota(0, shape(0)) + transform([this](int64_t i){ return this->slice({i}).to_string(); }) + "\n";
+        auto res = iota(0, shape(0)) | transform([this](int64_t i){ return this->slice({i}).to_string(); });
+        std::string str = "";
+        for(auto x : res) { str += x; str += "\n"; }
         return str;
     }
 }
