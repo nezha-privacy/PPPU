@@ -199,8 +199,8 @@ SecureMultiPartyPlayer::SecureMultiPartyPlayer(playerid_t my_pid,
 /// @param ssl_dir SSL protocol's verify path
 void SecureMultiPartyPlayer::setup_ssl_context(std::string const& ssl_dir)
 {
-    std::string cert_file = fmt::format("{}/Party{}.crt", ssl_dir, this->id());
-    std::string key_file  = fmt::format("{}/Party{}.key", ssl_dir, this->id());
+    std::string cert_file = "" + ssl_dir + "/Party" + std::to_string(this->id()) + ".crt";
+    std::string key_file  = "" + ssl_dir + "/Party" + std::to_string(this->id()) + ".key";
 
     this->_ssl_ctx.use_certificate_file(cert_file, boost::asio::ssl::context::pem);
     this->_ssl_ctx.use_private_key_file(key_file,  boost::asio::ssl::context::pem);
