@@ -47,7 +47,7 @@ void tutorial_4_network(int pid, int num_parties) {
     // Send or receive message
     if(pid == 0) {
         ByteVector msg_recv = player->recv(1);
-        fmt::print("{}", compare_bytevector(msg_compare, msg_recv));
+        std::cout<<compare_bytevector(msg_compare, msg_recv)<<std::endl;
     }
     else if(pid == 1) {
         player->send(0, std::move(msg_send));
