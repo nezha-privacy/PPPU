@@ -3,8 +3,6 @@
 #include <cassert>
 #include <stdexcept>
 
-#include <fmt/format.h>
-
 namespace core
 {
 
@@ -259,9 +257,8 @@ std::vector<int64_t> deduceConcatenateShape(
     int64_t ndim = shapes.front().size();
     int64_t axis = _axis + ndim*(_axis<0);
     if(axis < 0 || axis >= ndim) {
-        throw std::invalid_argument(fmt::format(
-            "concatenate with invalid axis {}", _axis
-        ));
+        std::string err = "concatenate with invalid axis " + std::to_string(_axis);
+        throw std::invalid_argument(err);
     }
 
     for(int64_t i = 1; i < N; ++i) {
