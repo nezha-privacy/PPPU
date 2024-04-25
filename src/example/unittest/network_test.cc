@@ -12,7 +12,6 @@
 #include "network/statistics.h"
 #include "tools/byte_vector.h"
 
-#include <fmt/core.h>
 #include <gtest/gtest.h>
 
 using size_type = std::size_t;
@@ -118,7 +117,6 @@ TEST(NetworkTest, AssertionCommunication) {
         auto msg = player.mbroadcast_recv(group, move(init_1()));
     });
     
-    fmt::print("");
     playerid_t my_pid = 0;
     PlainMultiPartyPlayer player(my_pid, n_players);
     player.run(n_threads);
