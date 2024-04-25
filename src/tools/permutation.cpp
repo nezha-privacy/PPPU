@@ -3,7 +3,6 @@
 #include <ranges>
 #include <bit>
 #include <functional>
-#include <fmt/format.h>
 
 #include "math.h"
 
