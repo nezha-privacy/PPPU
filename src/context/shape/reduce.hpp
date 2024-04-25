@@ -3,6 +3,7 @@
 #include "reduce.h"
 
 #include <optional>
+#include <string>
 
 #include "context/basic/basic.hpp"
 #include "context/compare/compare.hpp"
@@ -43,7 +44,10 @@ Value reduce(Context* ctx, Fn&& fn, Value const& _in, std::optional<int64_t> _ax
 
         if(axis < 0)    axis += ndim;
         if(axis < 0 || axis >= ndim)
-            throw std::invalid_argument(fmt::format("invalid axis {}", axis));
+        {
+            std::string err = "invalid axis " + std::to_string(axis);
+            throw std::invalid_argument(err);
+        }
     }
 
     std::vector<std::variant<core::Slice, int64_t>> mono_idx(ndim, core::Slice{});
