@@ -9,8 +9,6 @@
 #include <cassert>
 #include <ranges>
 
-#include <fmt/format.h>
-
 namespace core
 {
 
@@ -127,12 +125,8 @@ std::string ArrayRef<dtype>::to_string() const
         }
     };
     // Converts array elements to strings and concatenates them into a string separated by Spaces.
-    return fmt::format("{}",
-            fmt::join(
-                iota(0, numel()) |
-                transform([this](int64_t i) { return this->operator[](i); }) |
-                transform([&to_string](auto const &x) { return to_string(x); }),
-                " "));
+    std::string str = "" + iota(0, numel()) + transform([this](int64_t i) { return this->operator[](i); }) + transform([&to_string](auto const &x) { return to_string(x); }) + " ";
+    return str;
 }
 
 /******************************** iterator ********************************/
