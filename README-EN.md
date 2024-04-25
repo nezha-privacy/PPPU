@@ -19,7 +19,7 @@ $ git clone https://github.com/nezha-privacy/PPPU.git
 $ unzip PPPU.zip
 $ cd PPPU
 
-Try install.sh to install preinstallation requirments. If you already install some of them, modify the path of it in CMakeLists.txt.
+Try to install preinstallation requirments. If you already install some of them, modify the path of it in CMakeLists.txt.
 
 $ mkdir build
 $ cd build
