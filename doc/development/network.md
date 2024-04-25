@@ -74,7 +74,6 @@ c_rehash $ssl_dir
 #include <chrono>
 #include <cstdlib>
 #include <cassert>
-#include <fmt/format.h>
 
 void test_network(int argc, char* argv[])
 {
@@ -110,7 +109,8 @@ void test_network(int argc, char* argv[])
 
     // 设置发送消息的内容
     Serializer sr;
-    sr << fmt::format("hello from player {}", my_id);
+    std::string message = "hello from player " + std::to_string(my_id);
+    sr << message;
 
     // 发送并接受一条消息
     auto msg_recv = mp->exchange(1-my_id, sr.finalize());
@@ -119,6 +119,6 @@ void test_network(int argc, char* argv[])
     std::string msg;
     Deserializer dr(std::move(msg_recv));
     dr >> msg;
-    fmt::print("{}\n", msg);
+    std::cout<<msg<<std::endl;
 }
 ```
