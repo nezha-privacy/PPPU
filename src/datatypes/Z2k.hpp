@@ -1,7 +1,7 @@
 #pragma once
 
 #include <cassert>
-#include <cstring>
+#include <string>
 #include <bit>
 #include <type_traits>
 #include <cmath>
@@ -91,11 +91,13 @@ std::string Z2<K, S>::to_string() const
 {
     if constexpr (K == 1)
     {
-        return fmt::format("{}", *(uint8_t*)(this));
+        std::string str = "" + std::to_string(*(uint8_t*)(this));
+        return str;
     }
     else
     {
-        return fmt::format("{}", *(value_type*)(this));
+        std::string str = "" + std::to_string(*(value_type*)(this));
+        return str;
     }
 }
 
