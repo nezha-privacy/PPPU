@@ -141,8 +141,10 @@ void for_each_axis(NDArrayRef<dtype> const& in, int64_t axis, Fn&& fn)
     int64_t ndim = in.ndim();
     if( axis < 0 )  axis += ndim;
     //axis has been modified once
-    if( axis < 0 || axis >= ndim )
-        throw std::invalid_argument(fmt::format("axis {} out of range", axis));
+    if( axis < 0 || axis >= ndim ) {
+        std::string err = "axis " + std::to_string(axis) + " out of range";
+        throw err;
+    }
 
     int64_t     old_offset  = in.offset();
     auto const& old_shape   = in.shape();
