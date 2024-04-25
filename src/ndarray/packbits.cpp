@@ -32,7 +32,8 @@ NDArrayRef<uint8_t> packbits(NDArrayRef<uint8_t> const& in, std::optional<int64_
         int64_t ndim = in.ndim();
         int64_t axis = _axis.value();
         if( (-ndim <= axis && axis < ndim) == false ) {
-            throw std::invalid_argument(fmt::format("invalid axis {}", axis));
+            std::string err = "invalid axis " + std::to_string(axis);
+            throw err;
         }
         if(axis < 0) axis += ndim;
 
@@ -146,7 +147,8 @@ NDArrayRef<uint8_t> unpackbits(NDArrayRef<uint8_t> const& in, std::optional<int6
         int64_t ndim = in.ndim();
         int64_t axis = _axis.value();
         if( (-ndim <= axis && axis < ndim) == false ) {
-            throw std::invalid_argument(fmt::format("invalid axis {}", axis));
+            std::string err = "invalid axis " + std::to_string(axis);
+            throw err;
         }
         if(axis < 0) axis += ndim;
 
