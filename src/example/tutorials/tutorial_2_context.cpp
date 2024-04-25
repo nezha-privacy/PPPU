@@ -67,7 +67,7 @@ void tutorial_2_context(int pid, int num_parties) {
     // Print result
     if(pid == 0) {
         auto output = pppu::detail::decode([](auto x){return int(x);}, result.data_p());
-        fmt::print("{}", output.to_string());
+        std::cout<<output.to_string()<<std::endl;
     }
 }
 
