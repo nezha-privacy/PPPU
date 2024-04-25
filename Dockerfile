@@ -35,15 +35,6 @@ RUN cd tmp \
     && ./b2 install
 
 RUN cd tmp \
-    && git clone https://github.com/fmtlib/fmt.git \
-    && cd fmt \
-    && mkdir build \
-    && cd build \
-    && cmake .. \
-    && make -j12 \
-    && make install
-
-RUN cd tmp \
     && wget https://gmplib.org/download/gmp/gmp-6.2.1.tar.xz \
     && tar -xf gmp-6.2.1.tar.xz \
     && cd gmp-6.2.1 \
