@@ -34,8 +34,8 @@ void tutorial_3_mpc(int pid, int num_parties) {
     // Print result
     if(pid == 0) {
         for(std::size_t i = 0; i != result.numel(); ++i) {
-            fmt::print("{}", result[i].to_string());
-            if(i < result.numel() - 1) fmt::print(" ");
+            std::cout<<result[i].to_string();
+            if(i < result.numel() - 1) std::cout<<" ";
         }
     }
 }
