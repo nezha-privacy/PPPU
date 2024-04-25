@@ -111,7 +111,7 @@ Value mod(Context* ctx, Value const& x, T modulus)
 {
     if(modulus <= 0)
     {
-        std::string err = "invalid modulus" + std::to_string(modulus);
+        std::string err = "invalid modulus " + std::to_string(modulus);
         throw std::invalid_argument(err);
     }
 
