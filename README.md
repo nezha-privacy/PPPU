@@ -19,7 +19,7 @@ $ git clone https://github.com/nezha-privacy/PPPU.git
 $ unzip PPPU.zip
 $ cd PPPU
 
-尝试使用 install.sh 安装预安装内容。如果已经安装一些预安装内容，请修改CMakeLists.txt里的路径。
+尝试安装预安装内容。如果已经安装一些预安装内容，请修改CMakeLists.txt里的路径。
 
 $ mkdir build
 $ cd build
