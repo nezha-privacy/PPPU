@@ -404,13 +404,12 @@ static void BM_Test(benchmark::State& state) {
 }
 
 int main(int argc, char** argv) {
-    fmt::print("");
     init(argc, argv);
     auto context = run_player(pid, num_parties);
     ctx = context.get();
     prepare_value(ctx, sizes);
     prev = 0;
-    fmt::print("{}\n",pid);
+    std::cout<<pid<<std::endl;
     benchmark::RegisterBenchmark("BM_Semi2k", &BM_Test)->ArgsProduct({sizes, ops, bits})->UseManualTime()->MeasureProcessCPUTime()->Unit(benchmark::kMillisecond)->Iterations(iterations);
     benchmark::RunSpecifiedBenchmarks();
     benchmark::Shutdown();
