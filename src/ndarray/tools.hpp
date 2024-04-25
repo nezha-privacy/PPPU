@@ -213,7 +213,7 @@ NDArrayRef<dtype> reduce(
         if(axis < 0)    axis += ndim;
 
         if( axis < 0 || axis >= ndim )
-            throw std::invalid_argument(fmt::format("invalid axis"));
+            throw std::invalid_argument("invalid axis");
 
         if( in.shape(axis) <= 0 )
             throw std::invalid_argument("invalid axis");
