@@ -5,8 +5,6 @@
 #include "comm_package.hpp"
 #include "multi_party_player.h"
 
-#include <fmt/format.h>
-
 namespace network
 {
 
