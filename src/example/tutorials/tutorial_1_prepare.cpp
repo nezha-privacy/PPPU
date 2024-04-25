@@ -119,9 +119,6 @@ std::shared_ptr<pppu::Context> make_context(pppu::Config config, std::unique_ptr
 
 // Step 5 : Example to process step 1 to 4.
 std::shared_ptr<pppu::Context> run_player(std::size_t pid, std::size_t num_parties) {
-    // This is a bug, use context we need to use fmt to print something
-    fmt::print("");
-
     // Use TCP socket
     std::string ssl_dir = "";
 
