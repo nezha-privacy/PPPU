@@ -8,7 +8,6 @@
 #include <limits>
 
 #include <stdexcept>
-#include <fmt/format.h>
 
 #include "Z2k.h"
 
@@ -96,7 +95,7 @@ std::string Z2<K, S>::to_string() const
     }
     else
     {
-        std::string str = "" + std::to_string(*(value_type*)(this));
+        std::string str = "" + *(value_type*)(this);
         return str;
     }
 }
