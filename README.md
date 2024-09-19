@@ -3,7 +3,7 @@
 **其他语言版本: [English](README-EN.md), [中文](README.md).**
 
 ## 更新日志
-解决network网络连接在多参与方情景下出现的问题(p_i连接p_j时,pj未开启acceptor报错)。
+解决network网络连接在多参与方情景下出现的问题($P_i$连接p_j时,p_j未开启acceptor报错)。
 在进行多参与方连接时pid小的先执行。例如:先执行./tutorial 0 5,再执行./tutorial 1 5......
 
 新增动态链接库和头文件安装。取消了对fmt的依赖。
