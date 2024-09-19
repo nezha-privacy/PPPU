@@ -142,9 +142,10 @@ void SocketMultiPartyPlayer<SocketType>::connect(EndpointVector const &endpoints
     using namespace std::chrono_literals;
 
     SocketPackageType sockets = this->get_empty_sockets();
+    sleep(1*_my_pid);
     auto future = detail::mp_connect(_my_pid, _n_players, _ioc, sockets, endpoints);
-
-    get_or_throw(future, 5s, "connect timeout");
+    auto timeout = std::chrono::seconds(static_cast<int>(_n_players + 10));
+    get_or_throw(future, timeout, "connect timeout");
     _comm = std::move(CommPackageType(std::move(sockets)));
 }
 
