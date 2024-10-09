@@ -183,6 +183,17 @@ class NDArrayRef
     /// @brief Linear iterator, faster, only valid for array with linear/compact strides.
     LNIterator<dtype> lbegin();
     LNIterator<dtype> lend();
+
+    /// @brief add new value
+    /// @param value 
+    void push_back(dtype value){
+      if(this->ndim()!=1)
+        throw std::invalid_argument("Ndarrayref's dimension is not 1");
+      else{
+        this->_buffer->push_back(value);
+        this->_shape[0]+=1;
+      }
+    }
 };
 
 /// @brief Make an empty NDArrayRef.
