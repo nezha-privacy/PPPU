@@ -32,7 +32,7 @@ ValueType make_visibility(pppu::Context* ctx, ValueType res, pppu::Visibility vi
 // Make a Value object
 // We have two input types, intergral or floating_point, the content inside the annotation is specific to floating-point numbers
 // Or you can use pppu::make_public to make public Value
-template <std::integral DataType/*std::floating_point*/, typename ValueType>
+template </*std::integral DataType*/std::floating_point, typename ValueType>
 ValueType make_value(pppu::Context* ctx, std::size_t pid, std::vector<DataType> data, pppu::Visibility vis/*, fracbits*/) {
     // Define the owner of data or trusted party
     playerid_t ALICE;
