@@ -83,19 +83,42 @@ Z2<K1, S1>::Z2(Z2<K2, S2> const &other)
     }
 }
 
+template<typename T>
+std::string number_to_string(T value) {
+    if (value == 0) {
+        return "0";
+    }
+    bool negative = value < 0;
+    if (negative) {
+        value = -value;
+    }
+
+    std::string result;
+    while (value > 0) {
+        result += '0' + static_cast<int>(value % 10);
+        value /= 10;
+    }
+
+    if (negative) {
+        result += '-';
+    }
+
+    std::reverse(result.begin(), result.end());
+    return result;
+}
 /// @brief Converts a finite field element to a string representation(default decimal).
 template <size_t K, bool S>
 requires detail::small<K>
 std::string Z2<K, S>::to_string() const
 {
-    if constexpr (K == 1)
+     if constexpr (K == 1)
     {
-        std::string str = "" + std::to_string(*(uint8_t*)(this));
+        std::string str = "" + std::to_string(*(uint8_t*)(this->data()));
         return str;
     }
     else
     {
-        std::string str = "" + *(value_type*)(this);
+        std::string str = "" + number_to_string<value_type>(*(value_type*)(this->data()));
         return str;
     }
 }
