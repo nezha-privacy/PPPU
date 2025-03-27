@@ -27,7 +27,7 @@ RUN apt-get install -y libeigen3-dev
 RUN apt-get install -y m4
 
 RUN cd tmp \
-    && wget https://boostorg.jfrog.io/artifactory/main/release/1.80.0/source/boost_1_80_0.tar.gz \
+    && wget https://archives.boost.io/release/1.80.0/source/boost_1_80_0.tar.gz \
     && tar -zvxf boost_1_80_0.tar.gz \
     && cd boost_1_80_0 \
     && ./bootstrap.sh \
