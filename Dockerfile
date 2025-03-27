@@ -25,6 +25,7 @@ RUN apt-get install -y libssl-dev
 RUN apt-get install -y openssl
 RUN apt-get install -y libeigen3-dev
 RUN apt-get install -y m4
+RUN apt-get install -y libreadline-dev
 
 RUN cd tmp \
     && wget https://archives.boost.io/release/1.80.0/source/boost_1_80_0.tar.gz \
@@ -39,8 +40,17 @@ RUN cd tmp \
     && tar -xf gmp-6.2.1.tar.xz \
     && cd gmp-6.2.1 \
     && ./configure --prefix=/usr  --enable-cxx \
-    && make -j12 \
+    && make -j8 \
     && make check \
+    && make install
+
+RUN cd tmp \
+    && wget https://github.com/relic-toolkit/relic/archive/refs/tags/0.7.0.tar.gz \
+    && tar -zvxf 0.7.0.tar.gz \
+    && cd relic-0.7.0 \
+    && mkdir build && cd build \
+    && cmake.. \
+    && make -j8 \
     && make install
 
 ENV LD_LIBRARY_PATH=/usr/local/gmp/lib:$LD_LIBRARY_PATH
